@@ -10,16 +10,18 @@ import {onLogin} from "../common/login-method";
 *   Public methods
 */
 
-export function createUser ({username, email, password}) {
+export function createUser ({username, email, password, device}) {
     const options = {
+        device,
         password,
         email
     };
     return this.call("customCreateUser", options).then(onLogin.bind(this));
 }
 
-export function loginWithPassword ({username, email, password}) {
+export function loginWithPassword ({username, email, password, device}) {
     const loginParameters = {
+        device,
         password,
         user: {
             username,
