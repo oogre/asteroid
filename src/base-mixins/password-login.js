@@ -15,7 +15,7 @@ export function createUser ({username, email, password}) {
         password,
         email
     };
-    return this.call("createUser", options).then(onLogin.bind(this));
+    return this.call("customCreateUser", options).then(onLogin.bind(this));
 }
 
 export function loginWithPassword ({username, email, password}) {
@@ -26,5 +26,5 @@ export function loginWithPassword ({username, email, password}) {
             email
         }
     };
-    return this.call("login", loginParameters).then(onLogin.bind(this));
+    return this.call("customLogin", loginParameters).then(onLogin.bind(this));
 }
